@@ -2,6 +2,7 @@ package pkgGame;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 
 import pkgHelper.LatinSquare;
@@ -413,7 +414,7 @@ public class Sudoku extends LatinSquare {
 	}
 	
 	
-	public class Cell{
+	private class Cell{
 		
 		private int iRow;
 		
@@ -426,6 +427,25 @@ public class Sudoku extends LatinSquare {
 			this.iRow = iRow;
 			this.iCol = iCol;
 		}
+
+		public int getiRow() {
+			return iRow;
+		}
+
+		public int getiCol() {
+			return iCol;
+		}
+
+		public ArrayList<Integer> getLstValidValues() {
+			return lstValidValues;
+		}
+
+		public void setlstValidValues(HashSet<Integer> lstValidValues) {
+			//edit this. pull elements from ArrayList into HashSet.
+			this.lstValidValues = lstValidValues;
+		}
+		
+		
 		
 		
 	}
