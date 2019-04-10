@@ -1,6 +1,7 @@
 package pkgGame;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.Random;
 
 import pkgHelper.LatinSquare;
@@ -409,5 +410,23 @@ public class Sudoku extends LatinSquare {
 			ar[index] = ar[i];
 			ar[i] = a;
 		}
+	}
+	
+	
+	public class Cell{
+		
+		private int iRow;
+		
+		private int iCol;
+		
+		private ArrayList<Integer> lstValidValues = new ArrayList<>();
+
+		public Cell(int iRow, int iCol) {
+			
+			this.iRow = iRow;
+			this.iCol = iCol;
+		}
+		
+		
 	}
 }
