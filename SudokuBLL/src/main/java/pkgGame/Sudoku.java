@@ -2,7 +2,9 @@ package pkgGame;
 
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Random;
 
 import pkgHelper.LatinSquare;
@@ -446,7 +448,31 @@ public class Sudoku extends LatinSquare {
 		}
 		
 		
+
+		@Override
+		public boolean equals(Object obj) {
+			// TODO Auto-generated method stub
+			return super.equals(obj);
+		}
 		
+		
+		public void ShuffleValidValues() {
+			Collections.shuffle(lstValidValues);
+		}
+		
+		public Sudoku.Cell GetNextCell(Sudoku.Cell c){
+			int currentCol = c.getiRow();
+			int currentRow = c.getiCol();
+			
+			
+		}
+
+		@Override
+		public int hashCode() {
+			
+			return Objects.hash(iRow,iCol);
+			
+		}
 		
 	}
 }
