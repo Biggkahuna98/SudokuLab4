@@ -460,9 +460,21 @@ public class Sudoku extends LatinSquare {
 			Collections.shuffle(lstValidValues);
 		}
 		
-		public Sudoku.Cell GetNextCell(Sudoku.Cell c){
-			int currentCol = c.getiRow();
-			int currentRow = c.getiCol();
+		public Cell GetNextCell(Cell c){
+			int currentCol = c.getiCol();
+			int currentRow = c.getiRow();
+			
+			if(currentCol == iSize -1 && currentRow == iSize -1) {
+				return null;
+				//little confused on what this method returns and how we're supposed to return it.
+			}
+			
+			else {
+				
+				if(currentCol == iSize -1) {
+					return Cell(currentRow + 1, 0);
+				}
+			}
 			
 			
 		}
