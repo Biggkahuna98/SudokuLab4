@@ -3,6 +3,7 @@ package pkgGame;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Random;
@@ -39,6 +40,8 @@ public class Sudoku extends LatinSquare {
 
 	private int iSqrtSize;
 
+	private HashMap<Integer,Cell> cells =  new HashMap<Integer,Cell>();
+	
 	/**
 	 * Sudoku - for Lab #2... do the following:
 	 * 
@@ -474,7 +477,7 @@ public class Sudoku extends LatinSquare {
 			this.lstValidValues = new ArrayList<Integer> (lstValidValues);
 		} 
 		
-		
+		//Default value for Integer is null.
 
 		@Override
 		public boolean equals(Object obj) {
@@ -508,6 +511,7 @@ public class Sudoku extends LatinSquare {
 			
 			
 			return (Cell)cells.get(Objects.hash(currentRow,currentCol));
+			//create instance hashcode list for cells.
 		}
 
 		@Override
