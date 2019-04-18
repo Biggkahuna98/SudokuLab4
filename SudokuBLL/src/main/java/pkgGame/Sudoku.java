@@ -416,6 +416,33 @@ public class Sudoku extends LatinSquare {
 	}
 	
 	
+	private java.util.HashSet<java.lang.Integer> getAllValidCellValues​(int iCol, int iRow){
+		
+		HashSet <Integer> usedNumbers = new HashSet <Integer>();
+		HashSet <Integer> unUsedNumbers = new HashSet <Integer>();
+		 int [] Region = (this.getRegion(iCol,iRow));
+		 int [] Row= (this.getRow(iRow));
+		 int [] Column= (this.getRow(iCol));
+		 
+		 for(int i=0; i<iSize; i++) {
+			 usedNumbers.add(Region[i]);
+			 usedNumbers.add(Row[i]);
+			 usedNumbers.add(Column[i]);
+			 unUsedNumbers.add(i);
+			 }
+		 
+		return unUsedNumbers;
+		 
+		
+	}
+
+	
+	
+	
+	
+	
+	
+	
 	private class Cell{
 		
 		private int iRow;
