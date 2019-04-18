@@ -472,7 +472,7 @@ public class Sudoku extends LatinSquare {
 		public void setlstValidValues(HashSet<Integer> lstValidValues) {
 			//edit this. pull elements from ArrayList into HashSet.
 			this.lstValidValues = new ArrayList<Integer> (lstValidValues);
-		}
+		} 
 		
 		
 
