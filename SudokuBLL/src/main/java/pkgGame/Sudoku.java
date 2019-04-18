@@ -444,7 +444,7 @@ public class Sudoku extends LatinSquare {
 
 		public void setlstValidValues(HashSet<Integer> lstValidValues) {
 			//edit this. pull elements from ArrayList into HashSet.
-			this.lstValidValues = lstValidValues;
+			this.lstValidValues = new ArrayList<Integer> (lstValidValues);
 		}
 		
 		
@@ -461,22 +461,26 @@ public class Sudoku extends LatinSquare {
 		}
 		
 		public Cell GetNextCell(Cell c){
-			int currentCol = c.getiCol();
+			int currentCol = c.getiCol() + 1;
 			int currentRow = c.getiRow();
 			
-			if(currentCol == iSize -1 && currentRow == iSize -1) {
-				return null;
-				//little confused on what this method returns and how we're supposed to return it.
-			}
 			
-			else {
+			
+			if(currentCol >= iSize && currentRow < iSize -1) {
+				currentCol = 0;
 				
-				if(currentCol == iSize -1) {
-					return Cell(currentRow + 1, 0);
-				}
+				currentRow += 1;
+				
 			}
 			
+			if(currentCol >= iSize && currentRow >= iSize) {
+				return null;
+			}
 			
+			if(currentRow < iSqrtSize)
+			
+			
+			return (Cell)cells.get(Objects.hash(currentRow,currentCol));
 		}
 
 		@Override
