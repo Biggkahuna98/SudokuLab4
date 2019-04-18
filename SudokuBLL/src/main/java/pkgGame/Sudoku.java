@@ -430,7 +430,7 @@ public class Sudoku extends LatinSquare {
 			 usedNumbers.add(Column[i]);
 			 unUsedNumbers.add(i);
 			 }
-		 
+		 unUsedNumbers.removeAll(usedNumbers);
 		return unUsedNumbers;
 		 
 		
