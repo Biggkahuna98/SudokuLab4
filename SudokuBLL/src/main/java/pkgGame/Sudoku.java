@@ -427,15 +427,16 @@ public class Sudoku extends LatinSquare {
 		HashSet <Integer> unUsedNumbers = new HashSet <Integer>();
 		 int [] Region = (this.getRegion(iCol,iRow));
 		 int [] Row= (this.getRow(iRow));
-		 int [] Column= (this.getRow(iCol));
+		 int [] Column= (this.getColumn(iCol));
 		 
 		 for(int i=0; i<iSize; i++) {
 			 usedNumbers.add(Region[i]);
 			 usedNumbers.add(Row[i]);
 			 usedNumbers.add(Column[i]);
-			 unUsedNumbers.add(i);
+			 unUsedNumbers.add(i+1);
 			 }
 		 unUsedNumbers.removeAll(usedNumbers);
+		 
 		return unUsedNumbers;
 		 
 		
