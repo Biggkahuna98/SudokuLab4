@@ -526,7 +526,7 @@ public class Sudoku extends LatinSquare {
 				
 				
 				currentCol+=1;
-			}
+			} 
 			
 			
 			return (Cell)cells.get(Objects.hash(currentRow,currentCol));
