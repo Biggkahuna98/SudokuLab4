@@ -450,6 +450,7 @@ public class Sudoku extends LatinSquare {
 				System.out.println("Cell[Row][Col]:"+ c.getiRow() + " " +c.getiCol() + "---");
 				for(Integer i : c.getLstValidValues()) {
 					System.out.print(i + " ");
+					
 				}
 			}
 		}
