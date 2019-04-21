@@ -521,7 +521,11 @@ public class Sudoku extends LatinSquare {
 				return null;
 			}
 			
-			if(currentRow < iSqrtSize)
+			if(currentRow < iSize && currentCol <iSize) {
+				
+				
+				currentCol+=1;
+			}
 			
 			
 			return (Cell)cells.get(Objects.hash(currentRow,currentCol));
