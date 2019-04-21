@@ -442,7 +442,18 @@ public class Sudoku extends LatinSquare {
 		
 	}
 
-	
+	private void ShowAvailableValues() {
+		for(int iRow = 0; iRow<iSize; iRow++) {
+			for(int iCol = 0; iCol<iSize; iCol++) {
+				
+				Cell c =cells.get(Objects.hash(iRow,iCol));
+				System.out.println("Cell[Row][Col]:"+ c.getiRow() + " " +c.getiCol() + "---");
+				for(Integer i : c.getLstValidValues()) {
+					System.out.print(i + " ");
+				}
+			}
+		}
+	}
 	
 	
 	
