@@ -123,7 +123,11 @@ public class SudokuTest {
 
 	}
 
+	@Test
+	public void Sudoku_FullPuzzle_1() throws Exception {
+		PrintStars();
+		Sudoku s1 = new Sudoku(9);
+		s1.PrintPuzzle();
 
-
-
+}
 }
