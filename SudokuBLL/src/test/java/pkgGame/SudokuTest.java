@@ -128,6 +128,6 @@ public class SudokuTest {
 		PrintStars();
 		Sudoku s1 = new Sudoku(9);
 		s1.PrintPuzzle();
-
+		assertTrue(s1.isSudoku());
 }
 }
