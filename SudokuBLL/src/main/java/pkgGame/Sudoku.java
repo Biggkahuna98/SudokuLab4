@@ -71,7 +71,7 @@ public class Sudoku extends LatinSquare {
 		super.setLatinSquare(puzzle);
 		FillDiagonalRegions();
 		SetCells(); //call when this is created.
-		fillRemaining(this.cells.get(Objects.hash(0,iSqrtSize))); //call when this is created
+		fillRemaining(this.cells.get(Objects.hash(0,0))); //call when this is created
 	}
 
 	/**
