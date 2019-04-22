@@ -554,7 +554,7 @@ public class Sudoku extends LatinSquare {
 					Cell c = new Cell(rowNum, colNum);
 					c.setlstValidValues(getAllValidCellValues​(colNum,rowNum));
 					c.ShuffleValidValues();
-					Cell.put(c.hashCode(), c);
+					cells.put(c.hashCode(), c);
 				}
 			}
 		}
