@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Random;
 
+
 import pkgHelper.LatinSquare;
 
 /**
@@ -69,8 +70,8 @@ public class Sudoku extends LatinSquare {
 		int[][] puzzle = new int[iSize][iSize];
 		super.setLatinSquare(puzzle);
 		FillDiagonalRegions();
-		//SetCells(); call when this is created.
-		//fillRemaining(this.cells.get(Objects.hash(0,0))) call when this is created
+		SetCells(); //call when this is created.
+		fillRemaining(this.cells.get(Objects.hash(0,0))); //call when this is created
 	}
 
 	/**
@@ -547,6 +548,16 @@ public class Sudoku extends LatinSquare {
 			return Objects.hash(iRow,iCol);
 			
 		}
+		private void SetCells() {
+			for(int rowNum = 0; rowNum < iSize; rowNum++) {
+				for (int colNum = 0; colNum < iSize; colNum++) {
+					Cell c = new Cell(rowNum, colNum);
+					c.setlstValidValues(getAllValidCellValues​(colNum,rowNum));
+					c.ShuffleValidValues();
+					Cell.put(c.hashCode(), c);
+				}
+			}
+		}
 		
 	}
 	private boolean fillRemaining(Cell c) {
@@ -559,10 +570,13 @@ public class Sudoku extends LatinSquare {
 				
 				if(fillRemaining(c.GetNextCell(c))) {
 					return true;
-					this.getPuzzle()[c.getiRow()][c.getiCol()]=0;
+					
 				}
+				this.getPuzzle()[c.getiRow()][c.getiCol()]=0;
 			}
+			
 		}
 		return false;
 	}
+
 }
