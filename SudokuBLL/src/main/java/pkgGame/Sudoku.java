@@ -465,7 +465,16 @@ public class Sudoku extends LatinSquare {
 		}
 	}
 	
-	
+	private void SetCells() {
+		for(int rowNum = 0; rowNum < iSize; rowNum++) {
+			for (int colNum = 0; colNum < iSize; colNum++) {
+				Cell c = new Cell(rowNum, colNum);
+				c.setlstValidValues(getAllValidCellValues​(colNum,rowNum));
+				c.ShuffleValidValues();
+				cells.put(c.hashCode(), c);
+			}
+		}
+	}
 	
 	
 	
@@ -548,16 +557,7 @@ public class Sudoku extends LatinSquare {
 			return Objects.hash(iRow,iCol);
 			
 		}
-		private void SetCells() {
-			for(int rowNum = 0; rowNum < iSize; rowNum++) {
-				for (int colNum = 0; colNum < iSize; colNum++) {
-					Cell c = new Cell(rowNum, colNum);
-					c.setlstValidValues(getAllValidCellValues​(colNum,rowNum));
-					c.ShuffleValidValues();
-					cells.put(c.hashCode(), c);
-				}
-			}
-		}
+		
 		
 	}
 	private boolean fillRemaining(Cell c) {
