@@ -71,7 +71,7 @@ public class Sudoku extends LatinSquare {
 		super.setLatinSquare(puzzle);
 		FillDiagonalRegions();
 		SetCells(); //call when this is created.
-		fillRemaining(this.cells.get(Objects.hash(0,0))); //call when this is created
+		fillRemaining(this.cells.get(Objects.hash(0,iSqrtSize))); //call when this is created
 	}
 
 	/**
@@ -540,17 +540,28 @@ public class Sudoku extends LatinSquare {
 				return null;
 			}
 			
-			if(currentRow < iSize && currentCol <iSize) {
-				
-				
-				currentCol+=1;
-			} 
-			
+			if(currentRow<iSqrtSize) {
+				if(currentRow<iSqrtSize) {
+					currentCol = iSqrtSize;
+				}
+			}
+			else if(iRow<iSize -iSqrtSize) {
+				if(currentCol == (int)(currentRow/iSqrtSize)*iSqrtSize) {
+					currentCol = currentCol+iSqrtSize;}
+				else {
+					if(currentCol == iSize-1) {
+						currentRow += 1;
+						currentCol=0;
+					
+					if(currentRow>=iSize - iSqrtSize)
+						return null;			
+				}
+			}
 			
 			return (Cell)cells.get(Objects.hash(currentRow,currentCol));
 			//create instance hashcode list for cells.
-		}
-
+			}
+	}
 		@Override
 		public int hashCode() {
 			
@@ -561,21 +572,21 @@ public class Sudoku extends LatinSquare {
 		
 	}
 	private boolean fillRemaining(Cell c) {
-		if(c==null) {
+		if(c==null) 
 			return true;
-		}
+		
 		for(int num:c.getLstValidValues()) {
 			if(isValidValue​(c,num)) {
 				this.getPuzzle()[c.getiRow()][c.getiCol()]=num;
 				
-				if(fillRemaining(c.GetNextCell(c))) {
+				if(fillRemaining(c.GetNextCell(c))) 
 					return true;
-					
-				}
+									
 				this.getPuzzle()[c.getiRow()][c.getiCol()]=0;
 			}
 			
 		}
+		this.PrintPuzzle();
 		return false;
 	}
 
