@@ -552,13 +552,14 @@ public class Sudoku extends LatinSquare {
 					if(currentCol == iSize-1) {
 						currentRow += 1;
 						currentCol=0;
-					
-					if(currentRow>=iSize - iSqrtSize)
-						return null;			
+					}
+					if(currentRow>=iSize - iSqrtSize) {
+						return null;
+					}
 				}
 			}
 			
-			return (Cell)cells.get(Objects.hash(currentRow,currentCol));
+			return (Cell) cells.get(Objects.hash(currentRow,currentCol));
 			//create instance hashcode list for cells.
 			}
 	}
@@ -570,7 +571,7 @@ public class Sudoku extends LatinSquare {
 		}
 		
 		
-	}
+	
 	private boolean fillRemaining(Cell c) {
 		if(c==null) 
 			return true;
