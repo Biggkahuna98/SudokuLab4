@@ -71,7 +71,7 @@ public class Sudoku extends LatinSquare {
 		super.setLatinSquare(puzzle);
 		FillDiagonalRegions();
 		SetCells(); //call when this is created.
-		fillRemaining(this.cells.get(Objects.hash(0,iSqrtSize))); //call when this is created
+		fillRemaining(this.cells.get(Objects.hash(iSqrtSize,iSqrtSize))); //call when this is created
 	}
 
 	/**
@@ -562,14 +562,14 @@ public class Sudoku extends LatinSquare {
 			return (Cell) cells.get(Objects.hash(currentRow,currentCol));
 			//create instance hashcode list for cells.
 			}
-	}
+	
 		@Override
 		public int hashCode() {
 			
 			return Objects.hash(iRow,iCol);
 			
 		}
-		
+	}
 		
 	
 	private boolean fillRemaining(Cell c) {
